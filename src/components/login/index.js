@@ -10,11 +10,11 @@ class Login extends Component {
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
       path: '/',
     })
+
     history.replace('/')
   }
 
@@ -93,13 +93,11 @@ class Login extends Component {
                   type="password"
                   id="password"
                 />
-                {showSubmitError ? (
-                  <p className="errorMsg">{errorMsg}</p>
-                ) : null}
               </div>
               <button type="submit" className="login-button">
                 Login
               </button>
+              {showSubmitError ? <p className="errorMsg">{errorMsg}</p> : null}
             </form>
           </div>
         </div>
